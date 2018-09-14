@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -14,8 +15,9 @@ mongoose.connect('mongodb://localhost:27017/personalnotes', { useNewUrlParser: t
 mongoose.Promise = global.Promise;
 
 app.set('port', (process.env.PORT || 6790));
-
+app.use(cors());
 app.use(bodyParser.json());
+
 app.use('/api', require('./routes/api'));
 
 app.listen(app.get('port'), () => {
