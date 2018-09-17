@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+
 import './App.css';
-import Subjects from '../components/Subjects/Subjects';
-import Navigation from '../components/Navigation/Navigation';
+import Home from './containers/Home/Home';
+import Layout from './hoc/Layout/Layout';
+
 class App extends Component {
+  
   render() {
+    console.log("inside the app.js");
     return (
       <div className="App">
-          <Navigation />
-          <Subjects />
-        
+        <Layout>
+          <Home />
+        </Layout>
       </div>
     );
   }
